@@ -1,4 +1,4 @@
-import { Ingredient } from '../shared';
+import { Ingredient } from '../shared/ingredient';
 
 export class Recipe {
 	constructor(public name, public description, public imagePath, public ingredients: Ingredient[]) {
