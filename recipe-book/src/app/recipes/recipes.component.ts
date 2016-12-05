@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Recipe } from './recipe';
+
 
 @Component({
   selector: 'rb-recipes',
@@ -9,7 +10,7 @@ import { Recipe } from './recipe';
 })
 export class RecipesComponent implements OnInit {
 
-  selectedRecipe: Recipe;
+  @Input() selectedRecipe: Recipe;
 
   constructor() { }
 

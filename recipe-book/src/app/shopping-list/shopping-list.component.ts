@@ -9,13 +9,23 @@ import { ShoppingListService } from './shopping-list.service';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
+  
+  private items: Ingredient[] = [];
+  selectedItem: Ingredient;
 
-  items: Ingredient[] = [];
+  onSelectedItem(item: Ingredient) {
+  	this.selectedItem = this.sls.selectItem(item);
+  }
+
+  onCleared() {
+  	this.selectedItem = null;
+  }
 
   constructor(private sls: ShoppingListService) { }
 
   ngOnInit() {
   	this.items = this.sls.getItems();
+  	console.log(this.items);
   }
 
 }

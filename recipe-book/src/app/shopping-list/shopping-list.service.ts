@@ -4,16 +4,37 @@ import { Ingredient } from '../shared/ingredient';
 
 @Injectable()
 export class ShoppingListService {
-  
-  private items: Ingredient[] = [];
+  items: Ingredient[] = [];
 
-  getItems() {
-  	return this.items;
-  }
-
+  /*
   addItems(items: Ingredient[]) {
   	Array.prototype.push.apply(this.items, items);
   }
+  */
+  
+   addItems(items: Ingredient[]) {
+	 Array.prototype.push.apply(this.items, items);
+   }
+
+   getItems() {
+   	return this.items;
+   }
+
+   addItem(item: Ingredient) {
+   	this.items.push(item);
+   }
+
+   editItem(oldItem: Ingredient, newItem: Ingredient) {
+   	this.items[this.items.indexOf(oldItem)] = newItem;
+   }
+
+   selectItem(item: Ingredient) {
+   	return this.items[this.items.indexOf(item)];
+   }
+
+   deleteItem(item: Ingredient) {
+   	this.items.splice(this.items.indexOf(item), 1);
+   }
 
   constructor() { }
 
